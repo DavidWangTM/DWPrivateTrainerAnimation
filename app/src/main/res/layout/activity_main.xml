@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mianview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/down_re"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@mipmap/bgup"
+        android:layout_marginBottom="33dp"
+        >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:background="@mipmap/bgdown"
+            android:gravity="center_horizontal"
+            >
+
+            <ImageView
+                android:layout_width="314dp"
+                android:layout_height="50dp"
+                android:background="@mipmap/card0"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                />
+
+            <ImageView
+                android:layout_width="314dp"
+                android:layout_height="145dp"
+                android:background="@mipmap/card1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                />
+
+            <ImageView
+                android:layout_width="314dp"
+                android:layout_height="145dp"
+                android:background="@mipmap/card2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                />
+
+            <ImageView
+                android:layout_width="314dp"
+                android:layout_height="145dp"
+                android:background="@mipmap/card3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                />
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/explore_re"
+        android:layout_width="205dp"
+        android:layout_height="40dp"
+        android:background="#AA81BCE5"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:visibility="gone"
+        >
+            <ImageView
+                android:layout_width="66dp"
+                android:layout_height="23dp"
+                android:background="@mipmap/explore"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/arrow_re"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:background="@drawable/rounded"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="17dp"
+        >
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="20dp"
+                android:background="@mipmap/arrow"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+
+</RelativeLayout>
