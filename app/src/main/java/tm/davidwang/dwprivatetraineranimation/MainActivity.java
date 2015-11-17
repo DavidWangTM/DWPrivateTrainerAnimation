@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ObjectAnimator.ofFloat(card1, "scaleX", 1, 0.7f).start();
         ObjectAnimator.ofFloat(card2, "scaleX", 1, 0.7f).start();
         ObjectAnimator.ofFloat(card3, "scaleX", 1, 0.7f).start();
+        ObjectAnimator.ofFloat(card0, "scaleY", 1, 0.7f).start();
+        ObjectAnimator.ofFloat(card1, "scaleY", 1, 0.7f).start();
+        ObjectAnimator.ofFloat(card2, "scaleY", 1, 0.7f).start();
+        ObjectAnimator.ofFloat(card3, "scaleY", 1, 0.7f).start();
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 showView();
@@ -74,12 +78,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void Top(){
         ObjectAnimator.ofFloat(card0, "translationX", dip2px(430), 0).setDuration(duration*2 - 400).start();
         ObjectAnimator.ofFloat(card0, "scaleX", 0.7f,1).setDuration(duration * 2 - 400).start();
+        ObjectAnimator.ofFloat(card0, "scaleY", 0.7f,1).setDuration(duration * 2 - 400).start();
         ObjectAnimator.ofFloat(card1, "translationX", dip2px(450), 0).setDuration(duration*2 - 300).start();
         ObjectAnimator.ofFloat(card1, "scaleX", 0.7f,1).setDuration(duration*2 - 300).start();
+        ObjectAnimator.ofFloat(card1, "scaleY", 0.7f,1).setDuration(duration*2 - 300).start();
         ObjectAnimator.ofFloat(card2, "translationX", dip2px(470), 0).setDuration(duration*2 - 200).start();
         ObjectAnimator.ofFloat(card2, "scaleX", 0.7f,1).setDuration(duration*2 - 200).start();
+        ObjectAnimator.ofFloat(card2, "scaleY", 0.7f,1).setDuration(duration*2 - 200).start();
         ObjectAnimator.ofFloat(card3, "translationX", dip2px(490), 0).setDuration(duration*2 - 100).start();
         ObjectAnimator.ofFloat(card3, "scaleX", 0.7f,1).setDuration(duration*2 - 100).start();
+        ObjectAnimator.ofFloat(card3, "scaleY", 0.7f,1).setDuration(duration*2 - 100).start();
         ObjectAnimator.ofFloat(bgup, "translationY",dip2px(33) - 1280, 0).setDuration(duration*2 - 100).start();
     }
 
