@@ -1,17 +1,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mianview"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="720px"
+    android:layout_height="1280px"
     tools:context=".MainActivity">
 
     <RelativeLayout
         android:id="@+id/down_re"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@mipmap/bgup"
         android:layout_marginBottom="33dp"
+
         >
+
+        <ImageView
+            android:id="@+id/bgup"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@mipmap/bgup"
+            android:visibility="gone"
+            />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -28,6 +36,7 @@
                 android:background="@mipmap/card0"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
+                android:visibility="gone"
                 />
 
             <ImageView
@@ -37,6 +46,7 @@
                 android:background="@mipmap/card1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
+                android:visibility="gone"
                 />
 
             <ImageView
@@ -46,6 +56,7 @@
                 android:background="@mipmap/card2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
+                android:visibility="gone"
                 />
 
             <ImageView
@@ -55,6 +66,7 @@
                 android:background="@mipmap/card3"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
+                android:visibility="gone"
                 />
 
             </LinearLayout>
@@ -89,7 +101,9 @@
         android:background="@drawable/rounded"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="17dp">
+        android:layout_marginBottom="17dp"
+        android:visibility="gone"
+        >
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="20dp"
