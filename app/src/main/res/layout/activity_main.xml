@@ -22,6 +22,7 @@
             >
 
             <ImageView
+                android:id="@+id/card0"
                 android:layout_width="314dp"
                 android:layout_height="50dp"
                 android:background="@mipmap/card0"
@@ -30,6 +31,7 @@
                 />
 
             <ImageView
+                android:id="@+id/card1"
                 android:layout_width="314dp"
                 android:layout_height="145dp"
                 android:background="@mipmap/card1"
@@ -38,6 +40,7 @@
                 />
 
             <ImageView
+                android:id="@+id/card2"
                 android:layout_width="314dp"
                 android:layout_height="145dp"
                 android:background="@mipmap/card2"
@@ -46,6 +49,7 @@
                 />
 
             <ImageView
+                android:id="@+id/card3"
                 android:layout_width="314dp"
                 android:layout_height="145dp"
                 android:background="@mipmap/card3"
@@ -63,7 +67,7 @@
         android:id="@+id/explore_re"
         android:layout_width="205dp"
         android:layout_height="40dp"
-        android:background="#AA81BCE5"
+        android:background="@drawable/halfround"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="30dp"
@@ -85,8 +89,7 @@
         android:background="@drawable/rounded"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="17dp"
-        >
+        android:layout_marginBottom="17dp">
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="20dp"
