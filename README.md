@@ -1,5 +1,7 @@
 # DWPrivateTrainerAnimation
 
+> *此项目仿IOS地址:[MartinRGB](https://github.com/MartinRGB)的：[MTPrivateTrainerAnimation](https://github.com/MartinRGB/MTPrivateTrainerAnimation)*
+
 A simple implement of my design,only onboarding animation now
 
 ![My implement](https://github.com/MartinRGB/MTPrivateTrainerAnimation/blob/master/implement.gif?raw=true)
@@ -16,3 +18,10 @@ This is a swift exercise of Private Trainer's Onboarding Animation(It is also sh
 Had spent so many time on implementing other designer's design.This time try to write code for myself.I have myself's design files,so I can get the right value of animation.
 
 Not much logic code,just some animation adjustment when viewwillappear,will spend some time making the tableview part.
+
+## Version 
+
+1.0
+
+## Environment
+Android 2.3以上 屏幕分辨率 > w:720.h:1280 测试通过
