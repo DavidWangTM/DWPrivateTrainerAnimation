@@ -4,7 +4,7 @@
 
 A simple implement of my design,only onboarding animation now
 
-![My implement](https://github.com/MartinRGB/MTPrivateTrainerAnimation/blob/master/implement.gif?raw=true)
+![My implement](https://raw.githubusercontent.com/DavidWangTM/DWPrivateTrainerAnimation/master/animation.gif)
 
 My implement
 
