@@ -75,6 +75,9 @@
 
         </RelativeLayout>
 
+
+
+
     <RelativeLayout
         android:id="@+id/explore_re"
         android:layout_width="205dp"
@@ -95,6 +98,8 @@
 
         </RelativeLayout>
 
+
+
     <RelativeLayout
         android:id="@+id/arrow_re"
         android:layout_width="66dp"
@@ -106,34 +111,25 @@
         android:visibility="gone"
         >
             <ImageView
+                android:id="@+id/arrow_img"
                 android:layout_width="35dp"
                 android:layout_height="20dp"
                 android:background="@mipmap/arrow"
                 android:layout_centerInParent="true"
                 />
 
-        </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/add_re"
-        android:layout_width="66dp"
-        android:layout_height="66dp"
-        android:background="@drawable/rounded"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="17dp"
-        android:layout_marginRight="17dp"
-        android:visibility="gone"
-        >
-        <ImageView
-            android:id="@+id/add_img"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:background="@mipmap/add"
-            android:layout_centerInParent="true"
-            />
+            <ImageView
+                android:id="@+id/add_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@mipmap/add"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                />
 
         </RelativeLayout>
+
+
+
 
 </RelativeLayout>

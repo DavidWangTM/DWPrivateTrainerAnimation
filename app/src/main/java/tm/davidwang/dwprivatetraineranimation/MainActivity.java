@@ -13,9 +13,9 @@ import com.nineoldandroids.animation.ObjectAnimator;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private RelativeLayout explore_re,arrow_re,mianview,down_re,add_re;
+    private RelativeLayout explore_re,arrow_re,mianview,down_re;
     final int duration = 500;
-    private ImageView card0,card1,card2,card3,bgup,add_img,explore;
+    private ImageView card0,card1,card2,card3,bgup,explore,arrow_img,add_img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         card1 = (ImageView)findViewById(R.id.card1);
         card2 = (ImageView)findViewById(R.id.card2);
         card3 = (ImageView)findViewById(R.id.card3);
-        add_re = (RelativeLayout)findViewById(R.id.add_re);
-        add_img = (ImageView)findViewById(R.id.add_img);
         explore = (ImageView)findViewById(R.id.explore);
+        arrow_img = (ImageView)findViewById(R.id.arrow_img);
+        add_img = (ImageView)findViewById(R.id.add_img);
     }
 
     private void inData(){
@@ -57,10 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ObjectAnimator.ofFloat(card1, "scaleY", 1, 0.7f).start();
         ObjectAnimator.ofFloat(card2, "scaleY", 1, 0.7f).start();
         ObjectAnimator.ofFloat(card3, "scaleY", 1, 0.7f).start();
-//        ObjectAnimator.ofFloat(add_img, "scaleX", 1, 0.0f).start();
-//        ObjectAnimator.ofFloat(add_img, "scaleY", 1, 0.0f).start();
-
-
+        ObjectAnimator.ofFloat(add_img, "scaleY", 1, 0.0f).start();
+        ObjectAnimator.ofFloat(add_img, "scaleX", 1, 0.0f).start();
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 showView();
@@ -152,54 +150,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                ObjectAnimator.ofFloat(arrow_re, "scaleX",0.6f,1).start();
 //                ObjectAnimator.ofFloat(arrow_re, "scaleY",0.6f,1).start();
 //                inData();
+                //如果需要完整动画，请屏蔽：
+                  newAnimator();
 
-                AnimatorSet set = new AnimatorSet();
-                set.playTogether(
-                        ObjectAnimator.ofFloat(arrow_re, "scaleX", 0.6f, 0.0f),
-                        ObjectAnimator.ofFloat(arrow_re, "scaleY", 0.6f, 0.0f),
-                        ObjectAnimator.ofFloat(explore, "scaleX", 0.6f, 0.0f),
-                        ObjectAnimator.ofFloat(explore, "scaleY", 0.6f, 0.0f),
-                        ObjectAnimator.ofFloat(explore_re, "scaleY", 1.0f, 1.65f),
-                        ObjectAnimator.ofFloat(explore_re, "translationX", 0.0f, dip2px(60))
-                );
-                set.setDuration(duration).start();
-                set.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        add_re.setVisibility(View.VISIBLE);
-                        AddImgAnimator();
-                    }
-
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-                });
 
                 break;
         }
     }
 
+    private void newAnimator(){
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                ObjectAnimator.ofFloat(explore_re, "alphe", 1.0f, 0.0f).setDuration(duration).start();
+                ObjectAnimator.ofFloat(explore_re, "scaleY", 1.25f, 0.0f).setDuration(duration).start();
+            }
+        }, duration);
 
-    private void AddImgAnimator(){
+        ObjectAnimator.ofFloat(explore_re, "scaleY", 1.0f, 1.25f).setDuration(duration).start();
         AnimatorSet set = new AnimatorSet();
         set.playTogether(
-                ObjectAnimator.ofFloat(add_img, "rotation", 0, 180),
-                ObjectAnimator.ofFloat(add_img, "scaleX",0.0f,1.0f),
-                ObjectAnimator.ofFloat(add_img, "scaleY",0.0f,1.0f),
-                ObjectAnimator.ofFloat(explore_re, "scaleX",1.0f,0.0f),
-                ObjectAnimator.ofFloat(explore_re, "scaleY",1.0f,0.0f),
-                ObjectAnimator.ofFloat(explore_re, "translationX", dip2px(60), dip2px(140))
+                ObjectAnimator.ofFloat(arrow_img, "scaleX", 0.6f, 0.0f),
+                ObjectAnimator.ofFloat(arrow_img, "scaleY", 0.6f, 0.0f),
+                ObjectAnimator.ofFloat(arrow_re, "scaleX", 0.6f, 1.0f),
+                ObjectAnimator.ofFloat(arrow_re, "scaleY", 0.6f, 1.0f),
+                ObjectAnimator.ofFloat(arrow_re, "translationX",dip2px(83),dip2px(130)),
+                ObjectAnimator.ofFloat(explore, "scaleX", 0.6f, 0.0f),
+                ObjectAnimator.ofFloat(explore, "scaleY", 0.6f, 0.0f),
+                ObjectAnimator.ofFloat(explore_re, "scaleX", 1.0f, 0.0f),
+                ObjectAnimator.ofFloat(explore_re, "translationX", 0.0f, dip2px(130))
         );
         set.setDuration(duration*2).start();
         set.addListener(new Animator.AnimatorListener() {
@@ -210,7 +188,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                add_re.setVisibility(View.VISIBLE);
+                add_img.setVisibility(View.VISIBLE);
+                AddImgAnimator();
             }
 
             @Override
@@ -223,5 +202,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+    }
+
+    private void AddImgAnimator(){
+        AnimatorSet set = new AnimatorSet();
+        set.playTogether(
+                ObjectAnimator.ofFloat(add_img, "rotation", 0, 180),
+                ObjectAnimator.ofFloat(add_img, "scaleX",0.0f,1.0f),
+                ObjectAnimator.ofFloat(add_img, "scaleY",0.0f,1.0f)
+        );
+        set.setDuration(duration*2).start();
     }
 }
