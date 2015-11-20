@@ -124,6 +124,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="17dp"
         android:layout_marginRight="17dp"
+        android:visibility="gone"
         >
         <ImageView
             android:id="@+id/add_img"

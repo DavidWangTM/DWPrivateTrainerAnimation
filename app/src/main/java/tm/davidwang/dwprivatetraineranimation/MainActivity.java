@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ObjectAnimator.ofFloat(card1, "scaleY", 1, 0.7f).start();
         ObjectAnimator.ofFloat(card2, "scaleY", 1, 0.7f).start();
         ObjectAnimator.ofFloat(card3, "scaleY", 1, 0.7f).start();
-        ObjectAnimator.ofFloat(add_img, "scaleX", 1, 0.0f).start();
-        ObjectAnimator.ofFloat(add_img, "scaleY", 1, 0.0f).start();
+//        ObjectAnimator.ofFloat(add_img, "scaleX", 1, 0.0f).start();
+//        ObjectAnimator.ofFloat(add_img, "scaleY", 1, 0.0f).start();
 
 
         new Handler().postDelayed(new Runnable() {
@@ -152,17 +152,76 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                ObjectAnimator.ofFloat(arrow_re, "scaleX",0.6f,1).start();
 //                ObjectAnimator.ofFloat(arrow_re, "scaleY",0.6f,1).start();
 //                inData();
-                ObjectAnimator.ofFloat(arrow_re, "scaleX",0.6f,0.0f).setDuration(duration*4).start();
-                ObjectAnimator.ofFloat(arrow_re, "scaleY",0.6f,0.0f).setDuration(duration*4).start();
-                ObjectAnimator.ofFloat(explore_re, "scaleY",1.0f,1.55f).setDuration(duration*4).start();
-                ObjectAnimator.ofFloat(explore, "scaleX",0.6f,0.0f).setDuration(duration*4).start();
-                ObjectAnimator.ofFloat(explore, "scaleY",0.6f,0.0f).setDuration(duration*4).start();
-                ObjectAnimator.ofFloat(add_img, "rotation",0,360).setDuration(duration*5).start();
-                ObjectAnimator.ofFloat(add_img, "scaleX",0.0f,1.0f).setDuration(duration*4).start();
-                ObjectAnimator.ofFloat(add_img, "scaleY",0.0f,1.0f).setDuration(duration*4).start();
+
+                AnimatorSet set = new AnimatorSet();
+                set.playTogether(
+                        ObjectAnimator.ofFloat(arrow_re, "scaleX", 0.6f, 0.0f),
+                        ObjectAnimator.ofFloat(arrow_re, "scaleY", 0.6f, 0.0f),
+                        ObjectAnimator.ofFloat(explore, "scaleX", 0.6f, 0.0f),
+                        ObjectAnimator.ofFloat(explore, "scaleY", 0.6f, 0.0f),
+                        ObjectAnimator.ofFloat(explore_re, "scaleY", 1.0f, 1.65f),
+                        ObjectAnimator.ofFloat(explore_re, "translationX", 0.0f, dip2px(60))
+                );
+                set.setDuration(duration).start();
+                set.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        add_re.setVisibility(View.VISIBLE);
+                        AddImgAnimator();
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
+
                 break;
         }
+    }
 
 
+    private void AddImgAnimator(){
+        AnimatorSet set = new AnimatorSet();
+        set.playTogether(
+                ObjectAnimator.ofFloat(add_img, "rotation", 0, 180),
+                ObjectAnimator.ofFloat(add_img, "scaleX",0.0f,1.0f),
+                ObjectAnimator.ofFloat(add_img, "scaleY",0.0f,1.0f),
+                ObjectAnimator.ofFloat(explore_re, "scaleX",1.0f,0.0f),
+                ObjectAnimator.ofFloat(explore_re, "scaleY",1.0f,0.0f),
+                ObjectAnimator.ofFloat(explore_re, "translationX", dip2px(60), dip2px(140))
+        );
+        set.setDuration(duration*2).start();
+        set.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                add_re.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
     }
 }
