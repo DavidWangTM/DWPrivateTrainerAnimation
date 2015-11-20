@@ -13,9 +13,9 @@ import com.nineoldandroids.animation.ObjectAnimator;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private RelativeLayout explore_re,arrow_re,mianview,down_re;
+    private RelativeLayout explore_re,arrow_re,mianview,down_re,add_re;
     final int duration = 500;
-    private ImageView card0,card1,card2,card3,bgup;
+    private ImageView card0,card1,card2,card3,bgup,add_img,explore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         card1 = (ImageView)findViewById(R.id.card1);
         card2 = (ImageView)findViewById(R.id.card2);
         card3 = (ImageView)findViewById(R.id.card3);
+        add_re = (RelativeLayout)findViewById(R.id.add_re);
+        add_img = (ImageView)findViewById(R.id.add_img);
+        explore = (ImageView)findViewById(R.id.explore);
     }
 
     private void inData(){
@@ -54,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ObjectAnimator.ofFloat(card1, "scaleY", 1, 0.7f).start();
         ObjectAnimator.ofFloat(card2, "scaleY", 1, 0.7f).start();
         ObjectAnimator.ofFloat(card3, "scaleY", 1, 0.7f).start();
+        ObjectAnimator.ofFloat(add_img, "scaleX", 1, 0.0f).start();
+        ObjectAnimator.ofFloat(add_img, "scaleY", 1, 0.0f).start();
+
+
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 showView();
@@ -141,10 +148,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case  R.id.mianview:
-                ObjectAnimator.ofFloat(arrow_re, "translationX",dip2px(83),0).start();
-                ObjectAnimator.ofFloat(arrow_re, "scaleX",0.6f,1).start();
-                ObjectAnimator.ofFloat(arrow_re, "scaleY",0.6f,1).start();
-                inData();
+//                ObjectAnimator.ofFloat(arrow_re, "translationX",dip2px(83),0).start();
+//                ObjectAnimator.ofFloat(arrow_re, "scaleX",0.6f,1).start();
+//                ObjectAnimator.ofFloat(arrow_re, "scaleY",0.6f,1).start();
+//                inData();
+                ObjectAnimator.ofFloat(arrow_re, "scaleX",0.6f,0.0f).setDuration(duration*4).start();
+                ObjectAnimator.ofFloat(arrow_re, "scaleY",0.6f,0.0f).setDuration(duration*4).start();
+                ObjectAnimator.ofFloat(explore_re, "scaleY",1.0f,1.55f).setDuration(duration*4).start();
+                ObjectAnimator.ofFloat(explore, "scaleX",0.6f,0.0f).setDuration(duration*4).start();
+                ObjectAnimator.ofFloat(explore, "scaleY",0.6f,0.0f).setDuration(duration*4).start();
+                ObjectAnimator.ofFloat(add_img, "rotation",0,360).setDuration(duration*5).start();
+                ObjectAnimator.ofFloat(add_img, "scaleX",0.0f,1.0f).setDuration(duration*4).start();
+                ObjectAnimator.ofFloat(add_img, "scaleY",0.0f,1.0f).setDuration(duration*4).start();
                 break;
         }
 

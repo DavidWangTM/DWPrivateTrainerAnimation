@@ -69,7 +69,7 @@
                 android:visibility="gone"
                 />
 
-            </LinearLayout>
+        </LinearLayout>
 
 
 
@@ -86,6 +86,7 @@
         android:visibility="gone"
         >
             <ImageView
+                android:id="@+id/explore"
                 android:layout_width="66dp"
                 android:layout_height="23dp"
                 android:background="@mipmap/explore"
@@ -110,6 +111,27 @@
                 android:background="@mipmap/arrow"
                 android:layout_centerInParent="true"
                 />
+
+        </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/add_re"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:background="@drawable/rounded"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="17dp"
+        android:layout_marginRight="17dp"
+        >
+        <ImageView
+            android:id="@+id/add_img"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@mipmap/add"
+            android:layout_centerInParent="true"
+            />
 
         </RelativeLayout>
 
