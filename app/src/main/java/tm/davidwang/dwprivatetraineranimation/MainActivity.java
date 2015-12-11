@@ -165,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ObjectAnimator.ofFloat(explore_re, "alphe", 1.0f, 0.0f).setDuration(duration).start();
 //                ObjectAnimator.ofFloat(explore_re, "scaleY", 1.25f, 0.3f).setDuration(duration).start();
                 ObjectAnimator.ofFloat(explore_re, "scaleX", 1.0f, 0.0f).setDuration(duration).start();
+                ObjectAnimator.ofFloat(explore_re, "translationX", 0.0f, dip2px(180)).setDuration(duration).start();
                 add_img.setVisibility(View.VISIBLE);
                 AddImgAnimator();
                 MoveTopAnimator();
@@ -180,8 +181,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ObjectAnimator.ofFloat(arrow_re, "scaleY", 0.6f, 1.0f),
                 ObjectAnimator.ofFloat(arrow_re, "translationX",dip2px(83),dip2px(130)),
                 ObjectAnimator.ofFloat(explore, "scaleX", 0.6f, 0.0f),
-                ObjectAnimator.ofFloat(explore, "scaleY", 0.6f, 0.0f),
-                ObjectAnimator.ofFloat(explore_re, "translationX", 0.0f, dip2px(130))
+                ObjectAnimator.ofFloat(explore, "scaleY", 0.6f, 0.0f)
         );
         set.setDuration(duration*2).start();
 //        set.addListener(new Animator.AnimatorListener() {
@@ -221,7 +221,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void MoveTopAnimator(){
         AnimatorSet set = new AnimatorSet();
         set.playTogether(
-                ObjectAnimator.ofFloat(bgup, "translationY", dip2px(33)),
+                ObjectAnimator.ofFloat(bgup, "translationY", -1280 + dip2px(120)),
                 ObjectAnimator.ofFloat(cardLayout, "translationY", -1280)
         );
         set.setDuration(duration*2).start();
