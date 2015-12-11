@@ -160,18 +160,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void newAnimator(){
-        ObjectAnimator.ofFloat(explore_re, "scaleY", 1.0f, 1.25f).setDuration(duration).start();
-        ObjectAnimator.ofFloat(explore_re, "scaleX", 1.0f, 0.0f).setDuration(2*duration - 300).start();
-        ObjectAnimator.ofFloat(explore_re, "translationX", 0.0f, dip2px(150)).setDuration(2*duration - 300).start();
+//        ObjectAnimator.ofFloat(explore_re, "scaleY", 1.0f, 1.25f).setDuration(duration).start();
+        ObjectAnimator.ofFloat(explore_re, "scaleX", 1.0f, 0.1f).setDuration(duration).start();
+        ObjectAnimator.ofFloat(explore_re, "translationX", 0.0f, dip2px(117)).setDuration(duration + 100).start();
+        ObjectAnimator.ofFloat(explore_re, "alphe", 1.0f, 0.0f).setDuration(duration).start();
+        ObjectAnimator.ofFloat(explore_re, "scaleY", 1.0f,1.25f).setDuration(duration).start();
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                ObjectAnimator.ofFloat(explore_re, "alphe", 1.0f, 0.0f).setDuration(duration).start();
-                ObjectAnimator.ofFloat(explore_re, "scaleY", 1.25f, 0.0f).setDuration(duration).start();
                 add_img.setVisibility(View.VISIBLE);
                 AddImgAnimator();
                 MoveTopAnimator();
             }
-        }, duration);
+        }, duration - 300);
         AnimatorSet set = new AnimatorSet();
         set.playTogether(
                 ObjectAnimator.ofFloat(arrow_img, "scaleX", 0.6f, 0.0f),
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ObjectAnimator.ofFloat(add_img, "scaleX",0.8f,1.2f),
                 ObjectAnimator.ofFloat(add_img, "scaleY",0.8f,1.2f)
         );
-        set.setDuration(duration*2).start();
+        set.setDuration(duration + 300).start();
     }
 
     private void MoveTopAnimator(){
@@ -223,6 +223,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ObjectAnimator.ofFloat(bgup, "translationY", -1280 + dip2px(120)),
                 ObjectAnimator.ofFloat(cardLayout, "translationY", -1280)
         );
-        set.setDuration(duration*2).start();
+        set.setDuration(duration + 300).start();
     }
 }
