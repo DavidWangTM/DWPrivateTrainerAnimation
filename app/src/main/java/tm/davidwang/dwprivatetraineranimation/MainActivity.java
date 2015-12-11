@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.nineoldandroids.animation.Animator;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout explore_re,arrow_re,mianview,down_re;
     final int duration = 500;
     private ImageView card0,card1,card2,card3,bgup,explore,arrow_img,add_img;
+    private LinearLayout cardLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         explore = (ImageView)findViewById(R.id.explore);
         arrow_img = (ImageView)findViewById(R.id.arrow_img);
         add_img = (ImageView)findViewById(R.id.add_img);
+        cardLayout = (LinearLayout)findViewById(R.id.cardLayout);
     }
 
     private void inData(){
@@ -57,8 +60,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ObjectAnimator.ofFloat(card1, "scaleY", 1, 0.7f).start();
         ObjectAnimator.ofFloat(card2, "scaleY", 1, 0.7f).start();
         ObjectAnimator.ofFloat(card3, "scaleY", 1, 0.7f).start();
-        ObjectAnimator.ofFloat(add_img, "scaleY", 1, 0.0f).start();
-        ObjectAnimator.ofFloat(add_img, "scaleX", 1, 0.0f).start();
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 showView();
@@ -162,7 +163,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 ObjectAnimator.ofFloat(explore_re, "alphe", 1.0f, 0.0f).setDuration(duration).start();
-                ObjectAnimator.ofFloat(explore_re, "scaleY", 1.25f, 0.0f).setDuration(duration).start();
+//                ObjectAnimator.ofFloat(explore_re, "scaleY", 1.25f, 0.3f).setDuration(duration).start();
+                ObjectAnimator.ofFloat(explore_re, "scaleX", 1.0f, 0.0f).setDuration(duration).start();
+                add_img.setVisibility(View.VISIBLE);
+                AddImgAnimator();
+                MoveTopAnimator();
             }
         }, duration);
 
@@ -176,40 +181,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ObjectAnimator.ofFloat(arrow_re, "translationX",dip2px(83),dip2px(130)),
                 ObjectAnimator.ofFloat(explore, "scaleX", 0.6f, 0.0f),
                 ObjectAnimator.ofFloat(explore, "scaleY", 0.6f, 0.0f),
-                ObjectAnimator.ofFloat(explore_re, "scaleX", 1.0f, 0.0f),
                 ObjectAnimator.ofFloat(explore_re, "translationX", 0.0f, dip2px(130))
         );
         set.setDuration(duration*2).start();
-        set.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                add_img.setVisibility(View.VISIBLE);
-                AddImgAnimator();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
+//        set.addListener(new Animator.AnimatorListener() {
+//            @Override
+//            public void onAnimationStart(Animator animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animator animation) {
+//                add_img.setVisibility(View.VISIBLE);
+//                AddImgAnimator();
+//            }
+//
+//            @Override
+//            public void onAnimationCancel(Animator animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animator animation) {
+//
+//            }
+//        });
     }
 
     private void AddImgAnimator(){
         AnimatorSet set = new AnimatorSet();
         set.playTogether(
                 ObjectAnimator.ofFloat(add_img, "rotation", 0, 180),
-                ObjectAnimator.ofFloat(add_img, "scaleX",0.0f,1.0f),
-                ObjectAnimator.ofFloat(add_img, "scaleY",0.0f,1.0f)
+                ObjectAnimator.ofFloat(add_img, "scaleX",0.8f,1.2f),
+                ObjectAnimator.ofFloat(add_img, "scaleY",0.8f,1.2f)
+        );
+        set.setDuration(duration*2).start();
+    }
+
+    private void MoveTopAnimator(){
+        AnimatorSet set = new AnimatorSet();
+        set.playTogether(
+                ObjectAnimator.ofFloat(bgup, "translationY", dip2px(33)),
+                ObjectAnimator.ofFloat(cardLayout, "translationY", -1280)
         );
         set.setDuration(duration*2).start();
     }
