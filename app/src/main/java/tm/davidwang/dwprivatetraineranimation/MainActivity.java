@@ -153,26 +153,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                inData();
                 //如果需要完整动画，请屏蔽：
                   newAnimator();
-
+                mianview.setEnabled(false);
 
                 break;
         }
     }
 
     private void newAnimator(){
+        ObjectAnimator.ofFloat(explore_re, "scaleY", 1.0f, 1.25f).setDuration(duration).start();
+        ObjectAnimator.ofFloat(explore_re, "scaleX", 1.0f, 0.0f).setDuration(2*duration - 300).start();
+        ObjectAnimator.ofFloat(explore_re, "translationX", 0.0f, dip2px(150)).setDuration(2*duration - 300).start();
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 ObjectAnimator.ofFloat(explore_re, "alphe", 1.0f, 0.0f).setDuration(duration).start();
-//                ObjectAnimator.ofFloat(explore_re, "scaleY", 1.25f, 0.3f).setDuration(duration).start();
-                ObjectAnimator.ofFloat(explore_re, "scaleX", 1.0f, 0.0f).setDuration(duration).start();
-                ObjectAnimator.ofFloat(explore_re, "translationX", 0.0f, dip2px(180)).setDuration(duration).start();
+                ObjectAnimator.ofFloat(explore_re, "scaleY", 1.25f, 0.0f).setDuration(duration).start();
                 add_img.setVisibility(View.VISIBLE);
                 AddImgAnimator();
                 MoveTopAnimator();
             }
         }, duration);
-
-        ObjectAnimator.ofFloat(explore_re, "scaleY", 1.0f, 1.25f).setDuration(duration).start();
         AnimatorSet set = new AnimatorSet();
         set.playTogether(
                 ObjectAnimator.ofFloat(arrow_img, "scaleX", 0.6f, 0.0f),
